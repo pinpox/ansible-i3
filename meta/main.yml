@@ -1,0 +1,20 @@
+galaxy_info:
+  author: Pablo Ovelleiro Corral
+  description: your description
+  company: committance AG
+
+  issue_tracker_url: https://desk.committance.com
+
+  license: private
+
+  min_ansible_version: 2.4
+
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+
+  galaxy_tags:
+  - koblenzserver
+
+dependencies: []
