@@ -1,2 +1,11 @@
 ---
 # tasks file for ansible-i3
+- name: Make sure .config/i3 exists
+  file:
+    path: /home/{{user}}/.config/i3
+    state: directory
+
+- name: Copy i3 configuration
+  copy:
+    src: config
+    dest: "/home/{{user}}/.config/i3/config"
