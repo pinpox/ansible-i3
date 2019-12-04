@@ -1,20 +1,11 @@
 # ansible-i3
 
-Kurzbeschreibung der Rolle
+This role sets up the i3 [tiling window manager](https://i3wm.org/)
 
-| Merkmal               | Beschreibung  |
-|-----------------------|---------------|
-| Rollenname            | ansible-i3 |
-| Funktion              |               |
-| Rollen-Abhängigkeiten |               |
+![pic alt](./scrot.png "opt title")
 
-##### Verfügbare Variablen:
+## Dependencies
 
-| Name | Funktion | Default |
-|------|----------|---------|
-
-## Info
-
-Weiter Informationen zum Tool/Skript/Aufgabe
-- Warum?
-- Konzept?
+It is intedend to be used together with
+[rofi](https://github.com/binaryplease/ansible-rofi) and
+[polybar](https://github.com/binaryplease/ansible-polybar) configuration.
