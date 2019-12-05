@@ -20,12 +20,30 @@
     src: lock.png
     dest: "/home/{{user}}/Pictures/lock.png"
 
-- name: Copy gtk boomarks
-  copy:
-    src: gtk-bookmarks
-    dest: "/home/{{user}}/.gtk-bookmarks"
-
 - name: Copy gtk2 settings
   copy:
-    src: "gtkrc-2.0"
-    dest: "/home/{{user}}/.gtkrc-2.0"
+    src: gtk2/{{item}}
+    dest: "/home/{{user}}/.{{item}}"
+  with_items:
+    - "gtkrc-2.0"
+    - "gtk-boomarks"
+
+- name: Copy xinitrc
+  copy:
+    src: xinitrc
+    dest: "/home/{{user}}/.xinitrc"
+
+- name: "Make sure .config/gtk-3.0 exists"
+  file:
+    path: "/home/{{user}}/.config/gtk-3.0"
+    state: directory
+
+- name: Copy gtk3 settings
+  copy:
+    src: gtk3/{{item}}
+    dest: "/home/{{user}}/.config/gtk-3.0/{{item}}"
+  with_items:
+    - "bookmarks"
+    - "gtk.css"
+    - "settings.ini"
+
