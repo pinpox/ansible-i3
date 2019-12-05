@@ -9,3 +9,13 @@
   copy:
     src: config
     dest: "/home/{{user}}/.config/i3/config"
+
+- name: Create Pictures directory
+  file:
+    path: "/home/{{user}}/Pictures"
+    state: directory
+
+- name: Copy lock image
+  copy:
+    src: lock.png
+    dest: "/home/{{user}}/Pictures/lock.png"
