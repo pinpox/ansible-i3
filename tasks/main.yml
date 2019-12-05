@@ -19,3 +19,13 @@
   copy:
     src: lock.png
     dest: "/home/{{user}}/Pictures/lock.png"
+
+- name: Copy gtk boomarks
+  copy:
+    src: gtk-bookmarks
+    dest: "/home/{{user}}/.gtk-bookmarks"
+
+- name: Copy gtk2 settings
+  copy:
+    src: "gtkrc-2.0"
+    dest: "/home/{{user}}/.gtkrc-2.0"
