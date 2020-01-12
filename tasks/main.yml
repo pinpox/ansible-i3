@@ -6,8 +6,8 @@
     state: directory
 
 - name: Copy i3 configuration
-  copy:
-    src: config
+  template:
+    src: config.j2
     dest: "{{ansible_env.HOME}}/.config/i3/config"
 
 - name: Create Pictures directory

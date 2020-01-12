@@ -151,10 +151,14 @@ bindsym $mod+r mode "resize"
 
 bindsym --release $mod+shift+minus exec  xdotool type --clearmodifiers --window $(xdotool getwindowfocus) '¯\_(ツ)_/¯'
 for_window [class="^.*"] border pixel 2
+
+
+{% if use_gaps %}
 gaps inner 6
 gaps outer 0
 smart_gaps on
 smart_borders no_gaps
+{% endif %}
 
 # Get the colors from .Xresources
 # Format:         variable Xresource/backup
