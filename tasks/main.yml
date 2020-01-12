@@ -22,7 +22,7 @@
 
 - name: Copy gtk2 settings
   copy:
-    src: gtk2/{{item}}
+    src: "gtk2/{{item}}"
     dest: "{{ansible_env.HOME}}/.{{item}}"
   with_items:
     - "gtkrc-2.0"
