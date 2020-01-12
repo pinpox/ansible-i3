@@ -1,3 +1,4 @@
 ---
 # defaults file for ansible-i3
-use_gaps: true
+i3_use_gaps: true
+i3_terminal: i3-sensible-terminal
