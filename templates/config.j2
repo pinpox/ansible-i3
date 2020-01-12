@@ -29,7 +29,7 @@ bindsym $mod+Shift+x          exec xscreensaver-command -lock
 bindsym $mod+Shift+Escape     exec xkill
 bindsym --release Print exec scrot -szb
 # bindsym --release Print       exec scrot -szb -e '~/.local/bin/dropshadow.sh \$f'
-bindcode 156                  exec --no-startup-id " i3-sensible-terminal -e hollywood"
+bindcode 156                  exec --no-startup-id " {{i3_terminal}} -e hollywood"
 bindsym $mod+space            exec emacsclient -nc
 
 # Make the currently focused window a scratchpad
@@ -40,8 +40,8 @@ bindsym $mod+plus scratchpad show
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Shift+Return exec  i3-sensible-terminal -e nvim
+bindsym $mod+Return exec {{i3_terminal}}
+bindsym $mod+Shift+Return exec  {{i3_terminal}} -e nvim
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -153,7 +153,7 @@ bindsym --release $mod+shift+minus exec  xdotool type --clearmodifiers --window 
 for_window [class="^.*"] border pixel 2
 
 
-{% if use_gaps %}
+{% if i3_use_gaps %}
 gaps inner 6
 gaps outer 0
 smart_gaps on
