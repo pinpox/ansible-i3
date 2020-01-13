@@ -1,0 +1,61 @@
+general {
+	output_format = "i3bar"
+		colors = true
+		interval = 5
+
+		color_good = "#{{base0B}}"
+		color_degraded = "#{{base0A}}"
+		color_bad = "#{{base08}}"
+}
+
+order += "ipv6"
+order += "disk /"
+order += "run_watch DHCP"
+order += "path_exists VPN"
+order += "ethernet eth0"
+order += "memory"
+order += "load"
+order += "tztime local"
+
+
+ethernet eth0 {
+	format_up = "E: %ip"
+		format_down = "E: down"
+}
+
+run_watch DHCP {
+	pidfile = "/var/run/dhclient*.pid"
+}
+
+path_exists VPN {
+# path exists when a VPN tunnel launched by nmcli/nm-applet is active
+	path = "/proc/sys/net/ipv4/conf/tun0"
+}
+
+tztime local {
+	format = "%Y-%m-%d %H:%M:%S"
+		hide_if_equals_localtime = true
+}
+
+load {
+	format = "%5min"
+}
+
+cpu_temperature 0 {
+	format = "T: %degrees °C"
+		path = "/sys/devices/platform/coretemp.0/temp1_input"
+}
+
+memory {
+	format = "%used"
+		threshold_degraded = "10%"
+		format_degraded = "MEMORY: %free"
+}
+
+disk "/" {
+	format = "%free"
+}
+
+read_file uptime {
+	path = "/proc/uptime"
+}
