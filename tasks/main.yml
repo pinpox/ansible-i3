@@ -56,5 +56,5 @@
 - name: Copy i3status configuration
   template:
     src: i3status.j2
-    path: "{{ansible_env.HOME}}/.config/i3status/config"
+    dest: "{{ansible_env.HOME}}/.config/i3status/config"
   when: i3_use_polybar == False
