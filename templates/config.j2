@@ -9,31 +9,31 @@ new_window pixel 2
 new_float pixel 2
 
 exec        xscreensaver -no-splash
-exec_always --no-startup-id xbindkeys -f .xbindkeys_config/speed_c/pablo
-exec_always setxkbmap us -variant colemak -option "caps:escape"
+exec_always setxkbmap {{i3_keyboard_layout}}
 exec_always nitrogen --restore
 exec        nm-applet
-exec_always ~/.screenlayout/default.sh
 
 {% if i3_use_polybar %}
 exec_always ~/.local/bin/launch_polybar
 {% endif %}
+
+{% if i3_optional %}
+exec_always ~/.screenlayout/default.sh
 
 bindsym XF86AudioPrev         exec playerctl previous
 bindsym XF86AudioNext         exec playerctl next
 bindsym XF86AudioStop         exec playerctl stop
 bindsym XF86AudioPlay         exec playerctl play-pause
 bindsym --release $mod+n      exec xdotool type --delay 80 --clearmodifiers --window $(xdotool getwindowfocus) '¯\_(ツ)_/¯'
-bindsym $mod+p                exec rofi -show run -lines 7 -eh 1 -bw 0  -fullscreen -padding 200
 bindsym $mod+Shift+p          exec rofi-pass -show combi -lines 7 -eh 3 -bw 0 -matching fuzzy
-bindsym $mod+Pause            exec chromium
-# bindsym $mod+Shift+x          exec ~/.local/bin/lock
-bindsym $mod+Shift+x          exec xscreensaver-command -lock
-bindsym $mod+Shift+Escape     exec xkill
-bindsym --release Print exec scrot -szb
-# bindsym --release Print       exec scrot -szb -e '~/.local/bin/dropshadow.sh \$f'
+bindsym --release Print       exec scrot -szb
 bindcode 156                  exec --no-startup-id " {{i3_terminal}} -e hollywood"
 bindsym $mod+space            exec emacsclient -nc
+{% endif %}
+
+bindsym $mod+p                exec rofi -show run -lines 7 -eh 1 -bw 0  -fullscreen -padding 200
+bindsym $mod+Shift+x          exec xscreensaver-command -lock
+bindsym $mod+Shift+Escape     exec xkill
 
 # Make the currently focused window a scratchpad
 bindsym $mod+minus move scratchpad
@@ -152,9 +152,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym --release $mod+shift+minus exec  xdotool type --clearmodifiers --window $(xdotool getwindowfocus) '¯\_(ツ)_/¯'
 for_window [class="^.*"] border pixel 2
-
 
 {% if i3_use_gaps %}
 gaps inner 6
