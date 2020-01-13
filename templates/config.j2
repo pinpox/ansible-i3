@@ -14,7 +14,10 @@ exec_always setxkbmap us -variant colemak -option "caps:escape"
 exec_always nitrogen --restore
 exec        nm-applet
 exec_always ~/.screenlayout/default.sh
+
+{% if i3_use_polybar %}
 exec_always ~/.local/bin/launch_polybar
+{% endif %}
 
 bindsym XF86AudioPrev         exec playerctl previous
 bindsym XF86AudioNext         exec playerctl next
@@ -178,3 +181,19 @@ client.focused          $blue   $blue   $black   $blue
 client.focused_inactive $grey   $grey   $black   $black
 client.unfocused        $grey   $black  $blue    $black
 client.urgent           $red1   $red    $magenta $red
+
+{% if not i3_use_polybar %}
+bar {
+	status_command i3status
+	position top
+
+    colors {
+		background         $black
+		separator          $grey
+		statusline         $white
+
+		focused_workspace  $blue   $blue   $black
+		inactive_workspace $grey   $grey   $white
+	}
+}
+{% endif %}

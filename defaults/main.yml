@@ -2,3 +2,4 @@
 # defaults file for ansible-i3
 i3_use_gaps: true
 i3_terminal: i3-sensible-terminal
+i3_use_polybar: true
