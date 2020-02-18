@@ -39,7 +39,7 @@
     state: directory
 
 - name: Copy gtk3 settings
-  copy:
+  template:
     src: "gtk3/{{item}}.j2"
     dest: "{{ansible_env.HOME}}/.config/gtk-3.0/{{item}}"
   with_items:
