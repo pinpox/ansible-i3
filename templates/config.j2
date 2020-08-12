@@ -2,13 +2,15 @@
 
 set $mod Mod4
 bindsym $mod+Shift+s sticky toggle
+workspace_layout tabbed
 
-font pango:Hermit 14px
+font pango:{{main_font}} 14px
 for_window [window_role="pop-up"] floating enable
 new_window pixel 2
 new_float pixel 2
 
 exec        xscreensaver -no-splash
+exec        picom
 exec_always setxkbmap {{i3_keyboard_layout}}
 exec_always nitrogen --restore
 exec        nm-applet
