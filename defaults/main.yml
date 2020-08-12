@@ -1,7 +1,7 @@
 ---
 # defaults file for ansible-i3
 i3_use_gaps: true
-i3_terminal: alacritty
+i3_terminal: termite
 i3_use_polybar: true
 i3_keyboard_layout: 'us -variant colemak -option "caps:escape"'
 i3_optional: true
