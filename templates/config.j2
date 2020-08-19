@@ -27,7 +27,8 @@ bindsym XF86AudioNext         exec playerctl next
 bindsym XF86AudioStop         exec playerctl stop
 bindsym XF86AudioPlay         exec playerctl play-pause
 bindsym --release $mod+n      exec xdotool type --delay 80 --clearmodifiers --window $(xdotool getwindowfocus) '¯\_(ツ)_/¯'
-bindsym $mod+Shift+p          exec rofi-pass -show combi -lines 7 -eh 3 -bw 0 -matching fuzzy
+# bindsym $mod+Shift+p          exec rofi-pass -show combi -lines 7 -eh 3 -bw 0 -matching fuzzy
+bindsym $mod+Shift+p          exec ~/rofi-pass
 bindsym --release Print       exec import png:- | xclip -selection clipboard -t image/png
 bindcode 156                  exec --no-startup-id " {{i3_terminal}} -e hollywood"
 bindsym $mod+space            exec emacsclient -nc
